@@ -17,6 +17,10 @@ int main()
 {
 	const int Widht = 800;
 	const int Height = 600;
+	
+	/*
+	пишите лучше так: MaxVelocity, PrevTime
+	*/
 	float Max_velocity = 300;
 	float Prev_time = 0;
 	const float Pi = 3.14159f;
@@ -87,6 +91,8 @@ int main()
 				bul.bullet.setOrigin((float)circleSize.x / 2, (float)circleSize.y / 2);
 				bul.bullet.setScale(0.3f, 0.3f);
 				bul.vel = d / sqrt(d.x * d.x + d.y * d.y);
+			        /*  чтобы размерность сошлась, нужно скорость на время помножить ... а вы к метрам прибавляете м^2/c
+				*/
 				bul.pos = center + bul.vel * (float)( circleSize.x / 4);
 				bul.bullet.setRotation(90 + (float)(atan2f(d.y, d.x) * 180 / Pi));
 				bul.bullet.setPosition(bul.pos);
